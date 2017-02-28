@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Untitled Document</title>
+    <!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+	<label for="textfield_text">Text Field:</label>
+  <input type="text" name="textfield_N" id="textfield">
+  <input type="button" name="button_B" id="button" value="HH" onClick="funTest()">
+      <label id="lblt1">Hier Text</label>
+       <input type="button" name="button_B2" id="button2" value="Var" onClick="funTest2()">
+      
+      	      <div>
+        <button type="button" class="btn btn-primary" id="booBt1" onClick="funTest2()">Same as Var</button>
+        <button type="button" class="btn btn-info" onClick="setLocal1">Set Storage</button>
+        <button type="button" class="btn btn-warning" onClick="getLocal1">Get Storage</button>
+       <label id="lblgetL1">Hier kommt der Text</label>
+       
+       <div id="result">hallo Div</div>
+         <div >Blub</div>
+        
+      </div>
+      	      <button type="button" class="btn btn-danger" onClick="t2()">t2</button>
+      	      <button type="button" class="btn btn-danger" onClick="t3()">t3</button>
+      	            <button type="button" class="btn btn-danger" onClick="t4()">Change</button>
+      	               <button type="button" class="btn btn-danger" onClick="t5()">Load</button>
+  
+  <script>
+		  function funTest() {
+			  document.getElementById("lblt1").innerText ='HH';	  
+		  		}
+ 			function funTest2() {
+			  var TextVar1 = document.getElementById("textfield").value;
+			  document.getElementById("lblt1").innerText =TextVar1;	  
+		  }
+	  function setLocal1() {
+	  localStorage.setItem("lastname", "Smithy T4");
+		  document.getElementById("lblgetL1").innerText = 'Changed';
+		      document.getElementById("lblgetL1").innerText = localStorage.getItem("lastname");
+	  }
+	  
+	  function getLocal1() {
+		  document.getElementById("lblgetL1").innerText = localStorage.getItem("lastname");
+	  }
+	function t2() {
+
+    // Store
+    localStorage.setItem("lastname", "Smithy T2");
+    // Retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} 
+
+	
+	function t3() {
+		// Check browser support
+if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Smithy T3");
+    // Retrieve
+    document.getElementById("lblgetL1").innerText = localStorage.getItem("lastname");
+} else {
+    document.getElementById("lblgetL1").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+	}
+	
+	
+	  function t4() {
+		   document.getElementById("lblgetL1").innerText = 'SET';
+		  
+		   localStorage.setItem("wish", "Big");
+	  }
+	
+	  function t5() {
+		    document.getElementById("lblgetL1").innerText = localStorage.getItem("wish");
+	  }
+	  
+	function testl() {
+		if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Smith");
+    // Retrieve
+    document.getElementById("lblgetL1").innerText = localStorage.getItem("lastname");
+} else {
+    document.getElementById("lblgetL1").innerText = "Sorry, your browser does not support Web Storage...";
+}
+	}
+	  </script>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+	<script src="js/jquery-1.11.3.min.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed --> 
+	<script src="js/bootstrap.js"></script>
+  </body>
+</html>
